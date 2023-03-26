@@ -12,5 +12,6 @@ namespace BookStore.DataAccess
 
         public DbSet<Category> Categories { get; set; }
         public DbSet<Cover> Covers { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
