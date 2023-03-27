@@ -115,5 +115,14 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             TempData["success"] = "Cover type deleted successfully";
             return RedirectToAction("Index");
         }
+
+        #region API CALLS
+        [HttpGet]
+        public IActionResult GetAll()
+        {
+            var productList = _unitOfWork.Product.GetAll(includeProperties:"Category,Cover");
+            return Json(new {data =  productList});
+        }
+        #endregion
     }
 }
