@@ -52,7 +52,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             }
             else
             {
-                productVM.Product = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
+                productVM.Product = _unitOfWork.Product.Get(u => u.Id == id);
                 return View(productVM);
                 //update
             }
@@ -115,7 +115,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
-            var obj = _unitOfWork.Product.GetFirstOrDefault(u => u.Id == id);
+            var obj = _unitOfWork.Product.Get(u => u.Id == id);
             if (obj == null)
             {
                 return Json(new {success = false, message = "Error while deletion"});

@@ -53,7 +53,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             }
 
             //var categoryFromDb = _db.Categories.Find(id);
-            var categoryFromDbFirst = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+            var categoryFromDbFirst = _unitOfWork.Category.Get(u => u.Id == id);
 
             if (categoryFromDbFirst == null)
             {
@@ -85,7 +85,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var categoryFromDbFirst = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+            var categoryFromDbFirst = _unitOfWork.Category.Get(u => u.Id == id);
 
             if (categoryFromDbFirst == null)
             {
@@ -99,7 +99,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult DeletePOST(int? id)
         {
-            var obj = _unitOfWork.Category.GetFirstOrDefault(u => u.Id == id);
+            var obj = _unitOfWork.Category.Get(u => u.Id == id);
             if (obj == null)
             {
                 return NotFound();

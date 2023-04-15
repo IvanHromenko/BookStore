@@ -30,7 +30,7 @@ namespace BookStoreWeb.Areas.Customer.Controllers
             ShoppingCart cartObj = new()
             {
                 Count = 1,
-                Product = _unitOfWork.Product.Get(u=>u.Id == productId, includeProperties: "Category,Cover"),
+                Product = _unitOfWork.Product.Get(u => u.Id == productId, includeProperties: "Category,Cover"),
                 ProductId = productId
             };
             
@@ -51,7 +51,7 @@ namespace BookStoreWeb.Areas.Customer.Controllers
             if(cartFromDb != null)
             {
                 cartFromDb.Count += shoppingCart.Count;
-                _unitOfWork.ShoppingCart.Update(shoppingCart);
+                _unitOfWork.ShoppingCart.Update(cartFromDb);
             }
             else
             {

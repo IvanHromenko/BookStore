@@ -37,7 +37,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
             }
             else
             {
-                Company companyObj = _unitOfWork.Company.GetFirstOrDefault(u => u.Id == id);
+                Company companyObj = _unitOfWork.Company.Get(u => u.Id == id);
                 return View(companyObj);
                 //update
             }
@@ -81,7 +81,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         [HttpDelete]
         public IActionResult Delete(int? id)
         {
-            var obj = _unitOfWork.Company.GetFirstOrDefault(u => u.Id == id);
+            var obj = _unitOfWork.Company.Get(u => u.Id == id);
             if (obj == null)
             {
                 return Json(new {success = false, message = "Error while deletion"});
