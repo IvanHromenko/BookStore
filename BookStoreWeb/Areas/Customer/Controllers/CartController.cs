@@ -118,7 +118,7 @@ namespace BookStoreWeb.Areas.Customer.Controllers
 
                 var options = new SessionCreateOptions
                 {
-                    SuccessUrl = domain + $"/Customer/Cart/OrderConfirmation?id={ShoppingCartVM.OrderHeader.Id}",
+                    SuccessUrl = domain + $"Customer/Cart/OrderConfirmation?id={ShoppingCartVM.OrderHeader.Id}",
                     CancelUrl = domain + "Customer/Cart/Index",
                     LineItems = new List<SessionLineItemOptions>(),
                     Mode = "payment"

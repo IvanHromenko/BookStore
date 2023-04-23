@@ -107,7 +107,7 @@ namespace BookStoreWeb.Areas.Admin.Controllers
         [HttpGet]
         public IActionResult GetAll()
         {
-            var productList = _unitOfWork.Product.GetAll(includeProperties:"Category,Cover");
+            List<Product> productList = _unitOfWork.Product.GetAll(includeProperties:"Category,Cover").ToList();
             return Json(new {data =  productList});
         }
 
