@@ -25,6 +25,12 @@ builder.Services.ConfigureApplicationCookie(options =>
     options.LogoutPath = $"/Identity/Account/Logout";
     options.AccessDeniedPath = $"/Identity/Account/AccessDenied";
 });
+/*builder.Services.AddAuthentication().AddGoogle(option =>
+{
+    //configure google auth
+    option.ClientId = "";
+    option.ClientSecret = "";
+});*/
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
